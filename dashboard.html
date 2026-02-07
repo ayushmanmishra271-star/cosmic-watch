@@ -1,40 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cosmic Watch</title>
+<title>Cosmic Watch Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="dashboard-bg">
 
-<div class="dashboard">
+<div class="dashboard-container">
 
-<div class="sidebar">
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-<h3>Cosmic Watch</h3>
+<h2 class="logo">🌌 Cosmic Watch</h2>
 
 <ul>
-<li>Dashboard</li>
-<li>Watchlist</li>
-<li>Alerts</li>
+<li onclick="showPanel('feed')">📡 Data Feed</li>
+<li onclick="showPanel('risk')">⚠ Risk Analytics</li>
+<li onclick="showPanel('alerts')">🚨 Alerts</li>
+<li><a href="watchlist.html">⭐ Watchlist</a></li>
 </ul>
 
+</aside>
+
+<!-- MAIN PANEL -->
+<main class="main">
+
+<!-- HERO ORBIT -->
+<section class="hero-visual">
+
+<div class="orbit-container">
+<div class="orbit-ring"></div>
+<div class="planet-core"></div>
+<div class="asteroid-orbit"></div>
 </div>
 
-<div class="main">
+<h1 class="dashboard-title">Mission Control Interface</h1>
 
-<h2>Asteroid Dashboard</h2>
+</section>
 
+<!-- PANELS -->
+<section id="feed" class="panel active">
+<h3>Live Asteroid Feed</h3>
 <div class="asteroid-grid"></div>
+</section>
 
-</div>
+<section id="risk" class="panel">
+<h3>Threat Risk Analytics</h3>
+<div class="risk-panel"></div>
+</section>
+
+<section id="alerts" class="panel">
+<h3>Emergency Alert Center</h3>
+<div class="alert-panel"></div>
+</section>
+
+</main>
 
 </div>
 
 <script src="script.js"></script>
+
+<script>
+function showPanel(id){
+document.querySelectorAll(".panel")
+.forEach(p => p.classList.remove("active"));
+
+document.getElementById(id).classList.add("active");
+}
+</script>
 
 </body>
 </html>
